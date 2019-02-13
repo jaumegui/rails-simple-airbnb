@@ -1,0 +1,19 @@
+<h1>All Flats</h1>
+
+<% @flats.each do |flat| %>
+  <ul>
+    <li>
+      <h2><%= flat.name %></h2>
+      <h3><%= flat.address %></h3>
+      <h4><%= flat.description %></h4>
+      <p><%= flat.price_per_night.to_s + '€' %></p>
+      <p><%= flat.number_of_guests.to_s + ' p' %></p>
+      <img src="" alt="">
+      <%= link_to "More Info", flat_path(flat), class: "navbar-brand"%>
+      <%= link_to "Edit", edit_flat_path(flat), class: "navbar-brand"%>
+      <%= link_to "Delete", flat_path(flat),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+    </li>
+  </ul>
+<% end %>
